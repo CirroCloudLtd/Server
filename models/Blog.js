@@ -1,18 +1,24 @@
 const mongoose = require('mongoose');
 
 const BlogSchema = new mongoose.Schema({
-  qtn_text: {
+  title: {
     type: String,
-    required: [true, 'must provide blog'],
+    required: true,
+    trim: true,
   },
-  year: Number,
-  paper: Number,
-  section: String,
-  topic: String,
-  answer: String,
-  katex_blog: String,
-  katex_answer: String,
-  edited: Boolean,
+  date: {
+    type: Date,
+    required: true,
+  },
+  readTime: {
+    type: Number,
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 module.exports = mongoose.model('Blog', BlogSchema);
