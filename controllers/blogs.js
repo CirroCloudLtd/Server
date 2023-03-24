@@ -3,7 +3,7 @@ const asyncWrapper = require('../middleware/async');
 const { createCustomError } = require('../errors/custom-error');
 
 const getAllBlogs = asyncWrapper(async (req, res) => {
-  const blogs = await Blog.find().sort('year');
+  const blogs = await Blog.find().sort('date');
   res.status(200).json({ blogs });
 });
 
