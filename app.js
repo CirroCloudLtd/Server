@@ -23,6 +23,16 @@ app.use(mongoSanitize());
 
 app.use(cookieParser(process.env.JWT_SECRET));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // Replace '*' with your website's domain if you want to restrict it
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  next();
+});
+
 // routes
 
 app.use('/api/v1/blogs', blogs);
