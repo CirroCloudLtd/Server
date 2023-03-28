@@ -19,6 +19,10 @@ const BlogSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  content: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Blog', BlogSchema);
