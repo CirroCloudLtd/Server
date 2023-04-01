@@ -1,6 +1,6 @@
 const Blog = require('../models/Blog');
 const asyncWrapper = require('../middleware/async');
-const { createCustomError } = require('../errors/custom-error');
+const { BadRequestError, NotFoundError } = require('../errors');
 
 const getAllBlogs = asyncWrapper(async (req, res) => {
   const blogs = await Blog.find().sort('date');
@@ -16,7 +16,7 @@ const getBlog = asyncWrapper(async (req, res, next) => {
   const { id: blogID } = req.params;
   const blog = await Blog.findOne({ _id: blogID });
   if (!blog) {
-    return next(createCustomError(`No blog with id : ${blogID}`, 404));
+    throw new NotFoundError(`No blog with id : ${blogID}`);
   }
 
   res.status(200).json({ blog });
@@ -25,7 +25,7 @@ const deleteBlog = asyncWrapper(async (req, res, next) => {
   const { id: blogID } = req.params;
   const blog = await Blog.findOneAndDelete({ _id: blogID });
   if (!blog) {
-    return next(createCustomError(`No blog with id : ${blogID}`, 404));
+    throw new NotFoundError(`No blog with id : ${blogID}`);
   }
   res.status(200).json({ blog });
 });
@@ -38,7 +38,7 @@ const updateBlog = asyncWrapper(async (req, res, next) => {
   });
 
   if (!blog) {
-    return next(createCustomError(`No blog with id : ${blogID}`, 404));
+    throw new NotFoundError(`No blog with id : ${blogID}`);
   }
 
   res.status(200).json({ blog });
