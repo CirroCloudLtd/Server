@@ -17,7 +17,9 @@
     "express-mongo-sanitize": "^2.2.0",
     "helmet": "^4.6.0",
     "xss-clean": "^0.1.1",
-    "mongoose": "^6.3.1"
+    "mongoose": "^6.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
