@@ -41,7 +41,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  // const origin = 'http://login.salon.app/LOGIN(Admin)';
+  // const origin = 'https://server.cirrocloudug.com/Admin';
   const origin = 'http://localhost:3000';
 
   await sendVerificationEmail({
