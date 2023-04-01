@@ -1,10 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const blogs = require('./routes/blogs');
 const connectDB = require('./db/connect');
-require('dotenv').config();
-const notFound = require('./middleware/not-found');
-const errorHandlerMiddleware = require('./middleware/error-handler');
+
 const https = require('https');
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -33,9 +31,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// routes
+// routers
+const blogsRouter = require('./routes/blogs');
+const usersRouter = require('./routes/users');
 
-app.use('/api/v1/blogs', blogs);
+// error handler
+const notFound = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
+
+// routes
+app.use('/api/v1/blogs', blogsRouter);
+app.use('/api/v1/users', usersRouter);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
