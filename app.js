@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 
 // routers
 const blogsRouter = require('./routes/blogs');
+const feedbackRouter = require('./routes/feedback');
 const demosRouter = require('./routes/demos');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
@@ -52,6 +53,7 @@ app.use(cookieParser(process.env.JWT_SECRET));
 // routes
 app.use('/api/v1/blogs', blogsRouter);
 app.use('/api/v1/demos', demosRouter);
+app.use('/api/v1/feedback', feedbackRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/auth', authRouter);
 
