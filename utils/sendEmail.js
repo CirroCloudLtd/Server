@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 const nodemailerConfig = require('./nodemailerConfig');
-const sgMail = require('@sendgrid/mail');
 
 const sendEmail = async ({ to, subject, html }) => {
   let testAccount = await nodemailer.createTestAccount();
@@ -8,7 +7,7 @@ const sendEmail = async ({ to, subject, html }) => {
   const transporter = nodemailer.createTransport(nodemailerConfig);
 
   return transporter.sendMail({
-    from: 'support@cirrocloudug.com',
+    from: 'Alerts <alerts@cirrocloudug.com>',
     to,
     subject,
     html,

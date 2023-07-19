@@ -3,7 +3,7 @@ module.exports = {
   port: 465,
   secure: true,
   auth: {
-    user: 'support@cirrocloudug.com',
+    user: 'alerts@cirrocloudug.com',
     pass: 'Allah 1s Great',
   },
   tls: {
