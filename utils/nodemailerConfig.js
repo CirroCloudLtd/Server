@@ -1,12 +1,12 @@
 module.exports = {
-  host: 'mail.cirrocloudug.com',
-  port: 465,
-  secure: true,
+  host: 'smtp.office365.com',
+  port: 587,
+  secure: false,
   auth: {
-    user: 'alerts@cirrocloudug.com',
-    pass: 'Allah 1s Great',
+    user: 'muhammad.ssempala@cirrocloudug.com',
+    pass: process.env.EMAIL_PASSWORD,
   },
   tls: {
-    rejectUnauthorized: false,
+    ciphers: 'SSLv3',
   },
 };

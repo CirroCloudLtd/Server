@@ -7,7 +7,7 @@ const sendEmail = async ({ to, subject, html }) => {
   const transporter = nodemailer.createTransport(nodemailerConfig);
 
   return transporter.sendMail({
-    from: 'Alerts <alerts@cirrocloudug.com>',
+    from: 'Alerts <muhammad.ssempala@cirrocloudug.com>',
     to,
     subject,
     html,
