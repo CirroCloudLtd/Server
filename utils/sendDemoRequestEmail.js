@@ -9,7 +9,7 @@ const sendDemoRequestEmail = async ({
   service,
   hearAbout,
 }) => {
-  const message = `<html><body><div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+  const message = `<div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
             <div style="text-align: center;">
                 <img src="https://res.cloudinary.com/dzeuffqjk/image/upload/v1687266108/logo_with_slogan_2_fwrzgn.png" style="max-width: 100%;" />
             </div>
@@ -26,7 +26,9 @@ const sendDemoRequestEmail = async ({
             <div style="text-align: center; margin-top: 30px;">
                 <a href="https://cirrocloudug.com" style="background-color: #0066ff; color: #fff; text-decoration: none; padding: 15px 20px; border-radius: 5px; font-size: 16px;">Visit Our Website</a>
             </div>
-        </div></body></html>`
+
+        </div>`
+
 
   return sendEmail({
     to: 'info@cirrocloudug.com',
