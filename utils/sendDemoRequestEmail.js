@@ -26,7 +26,9 @@ const sendDemoRequestEmail = async ({
             <div style="text-align: center; margin-top: 30px;">
                 <a href="https://cirrocloudug.com" style="background-color: #0066ff; color: #fff; text-decoration: none; padding: 15px 20px; border-radius: 5px; font-size: 16px;">Visit Our Website</a>
             </div>
+
         </div>`
+
 
   return sendEmail({
     to: 'info@cirrocloudug.com',
